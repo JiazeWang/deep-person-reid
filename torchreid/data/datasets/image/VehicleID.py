@@ -147,4 +147,4 @@ class VehicleID(ImageDataset):
         train = self.parse_img_pids(train_data, train_pid2label)
         query = self.parse_img_pids(query_data)
         gallery = self.parse_img_pids(gallery_data)
-        return train, gallery, query
+        return train, query, gallery
