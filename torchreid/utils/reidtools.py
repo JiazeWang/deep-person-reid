@@ -42,11 +42,11 @@ def visualize_ranked_results(distmat, dataset, data_type, width=128, height=256,
 
     print('# query: {}\n# gallery {}'.format(num_q, num_g))
     print('Visualizing top-{} ranks ...'.format(topk))
-    
+
     query, gallery = dataset
     assert num_q == len(query)
     assert num_g == len(gallery)
-    
+
     indices = np.argsort(distmat, axis=1)
 
     def _cp_img_to(src, dst, rank, prefix, matched=False):
@@ -74,7 +74,7 @@ def visualize_ranked_results(distmat, dataset, data_type, width=128, height=256,
     for q_idx in range(num_q):
         qimg_path, qpid, qcamid = query[q_idx]
         qimg_path_name = qimg_path[0] if isinstance(qimg_path, (tuple, list)) else qimg_path
-        
+
         if data_type == 'image':
             qimg = cv2.imread(qimg_path)
             qimg = cv2.resize(qimg, (width, height))
@@ -93,7 +93,7 @@ def visualize_ranked_results(distmat, dataset, data_type, width=128, height=256,
         for g_idx in indices[q_idx,:]:
             gimg_path, gpid, gcamid = gallery[g_idx]
             invalid = (qpid == gpid) & (qcamid == gcamid)
-            
+
             if not invalid:
                 matched = gpid==qpid
                 if data_type == 'image':
@@ -107,7 +107,7 @@ def visualize_ranked_results(distmat, dataset, data_type, width=128, height=256,
                     grid_img[:, start: end, :] = gimg
                 else:
                     _cp_img_to(gimg_path, qdir, rank=rank_idx, prefix='gallery', matched=matched)
-                
+
                 rank_idx += 1
                 if rank_idx > topk:
                     break
@@ -115,6 +115,7 @@ def visualize_ranked_results(distmat, dataset, data_type, width=128, height=256,
         if data_type == 'image':
             imname = osp.basename(osp.splitext(qimg_path_name)[0])
             cv2.imwrite(osp.join(save_dir, imname+'.jpg'), grid_img)
+            #cv2.imwrite(osp.join(save_dir, imname+'.jpg'), grid_img)
 
         if (q_idx+1) % 100 == 0:
             print('- done {}/{}'.format(q_idx+1, num_q))

@@ -84,7 +84,7 @@ class VehicleID(ImageDataset):
             if pid2label is not None:
                 pid = pid2label[pid]
             camid = 1  # don't have camid information use 1 for all
-            img_path = osp.join(self.img_dir, name+'.jpg')
+            img_path = osp.join(self.img_dir, name)
             output.append((img_path, pid, camid))
         return output
 
