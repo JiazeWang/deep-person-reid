@@ -37,16 +37,16 @@ class VehicleID(BaseImageDataset):
         self.dataset_dir = root
         self.img_dir = osp.join(self.dataset_dir, 'train')
         #self.split_dir = osp.join(self.dataset_dir, 'train_test_split')
-        self.train_list = osp.join(self.img_dir, 'part_train.txt')
+        self.train_list = osp.join(self.dataset_dir, 'part_train.txt')
         #self.test_size = test_size
-        self.test_list = osp.join(self.img_dir, 'part_val.txt')
+        self.test_list = osp.join(self.dataset_dir, 'part_val.txt')
         #if self.test_size == 800:
         #    self.test_list = osp.join(self.split_dir, 'test_list_800.txt')
         #elif self.test_size == 1600:
         #    self.test_list = osp.join(self.split_dir, 'test_list_1600.txt')
         #elif self.test_size == 2400:
         #    self.test_list = osp.join(self.split_dir, 'test_list_2400.txt'
-        print(self.test_list)
+        #print(self.test_list)
 
         #self.check_before_run()
 
