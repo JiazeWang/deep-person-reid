@@ -19,9 +19,9 @@ loss:
 
 train:
   optim: 'amsgrad'
-  lr: 0.0015
+  lr: 0.006
   max_epoch: 250
-  batch_size: 64
+  batch_size: 256
   fixbase_epoch: 10
   open_layers: ['classifier']
   lr_scheduler: 'cosine'
@@ -31,6 +31,6 @@ test:
   dist_metric: 'euclidean'
   normalize_feature: False
   evaluate: False
-  eval_freq: -1
+  eval_freq: 20
   rerank: False
   visactmap: False
