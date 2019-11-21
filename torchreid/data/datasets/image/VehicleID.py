@@ -32,7 +32,6 @@ class VehicleID(BaseImageDataset):
     dataset_dir = 'VehicleID'
 
     def __init__(self, root='/mnt/SSD/jzwang/reid/ReID_data/first_round/train', verbose=True, test_size=800, **kwargs):
-        super(VehicleID, self).__init__(root)
         #self.dataset_dir = osp.join(self.root, self.dataset_dir)
         self.dataset_dir = root
         self.img_dir = osp.join(self.dataset_dir, 'train')
@@ -54,6 +53,7 @@ class VehicleID(BaseImageDataset):
         train = [tuple(item) for item in train]
         query = [tuple(item) for item in query]
         gallery = [tuple(item) for item in gallery]
+        """
         self.train = train
         self.query = query
         self.gallery = gallery
@@ -65,8 +65,8 @@ class VehicleID(BaseImageDataset):
         self.num_train_pids, self.num_train_imgs, self.num_train_cams = self.get_imagedata_info(self.train)
         self.num_query_pids, self.num_query_imgs, self.num_query_cams = self.get_imagedata_info(self.query)
         self.num_gallery_pids, self.num_gallery_imgs, self.num_gallery_cams = self.get_imagedata_info(self.gallery)
-
-
+        """
+        super(VehicleID, self).__init__(train, query, gallery, **kwargs)
 
 
     def get_pid2label(self, pids):
