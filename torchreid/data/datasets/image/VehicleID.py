@@ -7,10 +7,11 @@ import os.path as osp
 
 from .base import BaseImageDataset
 from collections import defaultdict
+from torchreid.data.datasets import ImageDataset
+from torchreid.utils import read_json, write_json
 
 
-
-class VehicleID(BaseImageDataset):
+class VehicleID(ImageDataset):
     """
     VehicleID
     Reference:
