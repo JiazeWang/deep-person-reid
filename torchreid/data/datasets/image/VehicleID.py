@@ -111,9 +111,9 @@ class VehicleID(BaseImageDataset):
                 test_pid_dict[pid].append([name, pid])
         test_pids = list(test_pid_dict.keys())
         num_test_pids = len(test_pids)
-        assert num_test_pids == self.test_size, 'There should be {} vehicles for testing,' \
-                                                ' but but got {}, please check the data'\
-                                                .format(self.test_size, num_test_pids)
+        #assert num_test_pids == self.test_size, 'There should be {} vehicles for testing,' \
+        #                                        ' but but got {}, please check the data'\
+        #                                        .format(self.test_size, num_test_pids)
 
         train_data = []
         query_data = []
