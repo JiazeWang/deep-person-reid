@@ -34,7 +34,7 @@ class VehicleID(BaseImageDataset):
     def __init__(self, root='/mnt/SSD/jzwang/reid/ReID_data/first_round/train', verbose=True, test_size=800, **kwargs):
         super(VehicleID, self).__init__(root)
         #self.dataset_dir = osp.join(self.root, self.dataset_dir)
-        self.dataset_dir = self.root
+        self.dataset_dir = root
         self.img_dir = osp.join(self.dataset_dir, 'train')
         #self.split_dir = osp.join(self.dataset_dir, 'train_test_split')
         self.train_list = osp.join(self.img_dir, 'part_train.txt')
