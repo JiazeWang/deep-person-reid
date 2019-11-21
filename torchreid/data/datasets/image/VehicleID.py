@@ -48,7 +48,7 @@ class VehicleID(BaseImageDataset):
         #    self.test_list = osp.join(self.split_dir, 'test_list_2400.txt'
         print(self.test_list)
 
-        self.check_before_run()
+        #self.check_before_run()
 
         train, query, gallery = self.process_split(relabel=True)
         self.train = train
@@ -64,18 +64,7 @@ class VehicleID(BaseImageDataset):
         self.num_gallery_pids, self.num_gallery_imgs, self.num_gallery_cams = self.get_imagedata_info(self.gallery)
 
 
-    def check_before_run(self):
-        """Check if all files are available before going deeper"""
-        if not osp.exists(self.dataset_dir):
-            raise RuntimeError('"{}" is not available'.format(self.dataset_dir))
-        if not osp.exists(self.split_dir):
-            raise RuntimeError('"{}" is not available'.format(self.split_dir))
-        if not osp.exists(self.train_list):
-            raise RuntimeError('"{}" is not available'.format(self.train_list))
-        if self.test_size not in [800, 1600, 2400]:
-            raise RuntimeError('"{}" is not available'.format(self.test_size))
-        if not osp.exists(self.test_list):
-            raise RuntimeError('"{}" is not available'.format(self.test_list))
+
 
     def get_pid2label(self, pids):
         pid_container = set(pids)
