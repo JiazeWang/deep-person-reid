@@ -44,7 +44,7 @@ def eval_cuhk03(distmat, q_pids, g_pids, q_camids, g_camids, max_rank):
 
         # remove gallery samples that have the same pid and camid with query
         order = indices[q_idx]
-        remove = None 
+        remove = None
         #remove = (g_pids[order] == q_pid) & (g_camids[order] == q_camid)
         keep = np.invert(remove)
 
@@ -158,7 +158,7 @@ def evaluate_py(distmat, q_pids, g_pids, q_camids, g_camids, max_rank, use_metri
 
 
 def evaluate_rank(distmat, q_pids, g_pids, q_camids, g_camids, max_rank=50,
-                  use_metric_cuhk03=False, use_cython=True):
+                  use_metric_cuhk03=False, use_cython=False):
     """Evaluates CMC rank.
 
     Args:
