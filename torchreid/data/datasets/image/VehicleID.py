@@ -51,9 +51,9 @@ class VehicleID(ImageDataset):
         #self.check_before_run()
 
         train, query, gallery = self.process_split(relabel=True)
-        train = [tuple(item) for item in train]
-        query = [tuple(item) for item in query]
-        gallery = [tuple(item) for item in gallery]
+        #train = [tuple(item) for item in train]
+        #query = [tuple(item) for item in query]
+        #gallery = [tuple(item) for item in gallery]
         """
         self.train = train
         self.query = query
