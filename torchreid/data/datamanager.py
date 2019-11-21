@@ -143,9 +143,9 @@ class ImageDataManager(DataManager):
                 market1501_500k=market1501_500k
             )
             trainset.append(trainset_)
-            print(trainset)
-        trainset = sum(trainset)
-        print("SUM:",trainset)
+        #    print(trainset)
+        #trainset = sum(trainset)
+        #print("SUM:",trainset)
 
         self._num_train_pids = trainset.num_train_pids
         self._num_train_cams = trainset.num_train_cams
@@ -303,7 +303,7 @@ class VideoDataManager(DataManager):
                 sample_method=sample_method
             )
             trainset.append(trainset_)
-        trainset = sum(trainset)
+        #trainset = sum(trainset)
 
         self._num_train_pids = trainset.num_train_pids
         self._num_train_cams = trainset.num_train_cams
