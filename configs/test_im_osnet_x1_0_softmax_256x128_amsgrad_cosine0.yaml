@@ -1,0 +1,37 @@
+model:
+  name: 'osnet_x1_0'
+  pretrained: True
+  load_weights: '/home/jzwang/code/reid/deep-person-reid/log/osnet_x1_0_market1501_softmax_cosinelr/model.pth.tar-250'
+
+data:
+  type: 'image'
+  sources: ['veri']
+  targets: ['veri']
+  height: 256
+  width: 128
+  combineall: False
+  transforms: ['random_flip']
+  save_dir: 'log/osnet_x1_0_market1501_softmax_cosinelr_test'
+
+loss:
+  name: 'softmax'
+  softmax:
+    label_smooth: True
+
+train:
+  optim: 'amsgrad'
+  lr: 0.006
+  max_epoch: 250
+  batch_size: 256
+  fixbase_epoch: 10
+  open_layers: ['classifier']
+  lr_scheduler: 'cosine'
+
+test:
+  batch_size: 300
+  dist_metric: 'euclidean'
+  normalize_feature: False
+  evaluate: True
+  eval_freq: 10
+  rerank: False
+  visactmap: False

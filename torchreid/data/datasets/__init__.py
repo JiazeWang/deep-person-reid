@@ -18,7 +18,8 @@ __image_datasets = {
     'sensereid': SenseReID,
     'prid': PRID,
     'cuhk02': CUHK02,
-    'vihicle': VehicleID
+    'vihicle': VehicleID,
+    'veri': VeRi
 }
 
 

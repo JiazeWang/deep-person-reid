@@ -13,3 +13,4 @@ from .sensereid import SenseReID
 from .prid import PRID
 from .cuhk02 import CUHK02
 from .VehicleID import VehicleID
+from .veri import VeRi

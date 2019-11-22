@@ -26,7 +26,7 @@ def get_default_config():
     cfg.data.norm_mean = [0.485, 0.456, 0.406] # default is imagenet mean
     cfg.data.norm_std = [0.229, 0.224, 0.225] # default is imagenet std
     cfg.data.save_dir = 'log' # path to save log
-    
+
     # specific datasets
     cfg.market1501 = CN()
     cfg.market1501.use_500k_distractors = False # add 500k distractors to the gallery set for market1501
@@ -34,7 +34,7 @@ def get_default_config():
     cfg.cuhk03.labeled_images = False # use labeled images, if False, use detected images
     cfg.cuhk03.classic_split = False # use classic split by Li et al. CVPR14
     cfg.cuhk03.use_metric_cuhk03 = False # use cuhk03's metric for evaluation
-    
+
     # sampler
     cfg.sampler = CN()
     cfg.sampler.train_sampler = 'RandomSampler'
