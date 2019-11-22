@@ -36,11 +36,11 @@ class VeRi(ImageDataset):
         train = self.process_split(self.train_dir, relabel=True)
         query = self.process_split(self.query_dir, relabel=False)
         gallery = self.process_split(self.gallery_dir, relabel=False)
-
+        """
         if verbose:
             print('=> VeRi loaded')
             self.print_dataset_statistics(train, query, gallery)
-        """
+        
         self.train = train
         self.query = query
         self.gallery = gallery
