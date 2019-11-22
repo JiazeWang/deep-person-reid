@@ -103,17 +103,7 @@ def eval_market1501(distmat, q_pids, g_pids, q_camids, g_camids, max_rank):
 
     indices = np.argsort(distmat, axis=1)
 
-    max_200_indices = indices[:, :200]
-
-    res_dict = dict()
-    for q_idx in range(num_q):
-        print(q_pids[q_idx])
-        filename = q_pids[q_idx][q_pids[q_idx].rindex("\\")+1:]
-        max_200_files = [g_pids[i][g_pids[i].rindex("\\")+1:] for i in max_200_indices[q_idx]]
-        res_dict[filename] = max_200_files
-
-    with open(r'submission_A.json', 'w' ,encoding='utf-8') as f: # 提交文件
-        json.dump(res_dict, f)
+    np.save("indices.npy", indices)
 
     matches = (g_pids[indices] == q_pids[:, np.newaxis]).astype(np.int32)
 
