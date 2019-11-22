@@ -26,6 +26,7 @@ class VeRi(ImageDataset):
     def __init__(self, root='/mnt/SSD/jzwang/reid/ReID_data/first_round/test', verbose=True, **kwargs):
 
         self.dataset_dir = root
+        self.img_dir = osp.join(self.dataset_dir, '')
         self.train_dir = osp.join(self.dataset_dir, 'query_a_list.txt')
         self.query_dir = osp.join(self.dataset_dir, 'query_a_list.txt')
         self.gallery_dir = osp.join(self.dataset_dir, 'gallery_new.txt')
