@@ -102,7 +102,7 @@ def eval_market1501(distmat, q_pids, g_pids, q_camids, g_camids, max_rank):
         print('Note: number of gallery samples is quite small, got {}'.format(num_g))
 
     indices = np.argsort(distmat, axis=1)
-    np.save("distance.npy")
+    np.save("distance.npy", distmat)
     #np.save("indices.npy", indices)
 
     matches = (g_pids[indices] == q_pids[:, np.newaxis]).astype(np.int32)
